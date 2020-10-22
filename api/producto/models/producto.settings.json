@@ -1,0 +1,62 @@
+{
+  "kind": "collectionType",
+  "collectionName": "productos",
+  "info": {
+    "name": "producto"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Nombre": {
+      "type": "string",
+      "required": true
+    },
+    "descripcion": {
+      "type": "text",
+      "maxLength": 200
+    },
+    "Tipo": {
+      "type": "enumeration",
+      "enum": [
+        "Pizza",
+        "Pollastre",
+        "Burguer",
+        "Focaccia",
+        "Complements",
+        "Bruschetta",
+        "Mexica",
+        "Cassoles",
+        "Kebbabs",
+        "Begudes",
+        "Gelats"
+      ]
+    },
+    "Subtipo": {
+      "type": "enumeration",
+      "enum": [
+        "Normal",
+        "Carn",
+        "Mar",
+        "Calzone",
+        "Vegetal",
+        "Formatge"
+      ]
+    },
+    "miniatura": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "url": {
+      "type": "uid",
+      "targetField": "Nombre"
+    }
+  }
+}
